@@ -10,6 +10,7 @@ NvChad has many inbuilt plugins, but you can add new plugins or customize NvChad
 The plugins are located in `~/.config/nvim/lua/plugins/init.lua`.
 
 [`conform.nvim`](https://github.com/stevearc/conform.nvim)
+
 ```lua
 {
   "stevearc/conform.nvim",
@@ -19,9 +20,11 @@ The plugins are located in `~/.config/nvim/lua/plugins/init.lua`.
   end,
 }
 ```
+
 This is one of the inbuilt plugins that NvChad uses, and it is initially commented out. I uncommented out because
 I need to add different formatters for different file types. Additionally, `event = "BufWritePre` allows me to
 format on save. The configuration file for `conform.nvim` is found in `~/.config/nvim/lua/configs/conform.lua`.
+
 ```lua
 local options = {
   formatters_by_ft = {
@@ -42,10 +45,12 @@ local options = {
   },
 }
 ```
+
 This is the current configuration for `conform.nvim`. Initially, I had `lua = { "stylua" }`, but something happend with
 `stylua` to where it does not format `lua` files anymore.
 
 [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig)
+
 ```lua
 {
   "neovim/nvim-lspconfig",
@@ -55,8 +60,10 @@ This is the current configuration for `conform.nvim`. Initially, I had `lua = { 
   end,
 }
 ```
+
 This is also one of the inbuilt plugins that NvChad uses, and it is initially commented out. I uncommented out because
 I need to add different LSPs for different languages.
+
 ```lua
 local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "typst_lsp", "terraformls" }
 
@@ -68,8 +75,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 ```
+
 These are the different language server protocols that are setup with default configs. There are other language server
 protocols that has to be configured with custom configurations.
+
 ```lua
 lspconfig.cssls.setup {
   on_attach = on_attach,
@@ -85,9 +94,11 @@ lspconfig.cssls.setup {
   }
 }
 ```
+
 This is the configuration for the `CSS` language server protocol. Since I am using TailwindCSS, `CSS` gives the warning
 `Unknown at rule @tailwind`. This custom configuration ignores the `TailwindCSS` rules, so no warnings are present
 in the `CSS` files. See this [Reddit](https://www.reddit.com/r/lunarvim/comments/w50jfk/comment/jcl262v/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) post.
+
 ```lua
 lspconfig.tsserver.setup {
   on_attach = on_attach,
@@ -108,11 +119,13 @@ lspconfig.tsserver.setup {
   }
 }
 ```
+
 This is the configuration for the `TypeScript` language server protocol. This custom configuration creates a custom
 command called `OrganizeImports` that organizes the imports for `TypeScript` (and probably `JavaScript`) files. To
 enter the command, type `:OrganizeImports`. See this [Reddit](https://www.reddit.com/r/neovim/comments/lwz8l7/comment/gpkueno/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) post.
 
 [`mason.nvim`](https://github.com/williamboman/mason.nvim)
+
 ```lua
 {
   "williamboman/mason.nvim",
@@ -136,11 +149,13 @@ enter the command, type `:OrganizeImports`. See this [Reddit](https://www.reddit
   },
 }
 ```
+
 This is also one of the inbuilt plugins that NvChad uses, and it is initially commented out. I uncommented out because
 I want to ensure that some `LSP`, `DAP`, `Linter`, and `Formatter` are installed. You can use the command `MasonInstallAll`
 to install all `LSP`, `DAP`, `Linter`, and `Formatter` under `ensure_installed` are installed.
 
 [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
+
 ```lua
 {
   "nvim-treesitter/nvim-treesitter",
@@ -167,15 +182,19 @@ to install all `LSP`, `DAP`, `Linter`, and `Formatter` under `ensure_installed` 
   },
 }
 ```
+
 This is also one of the inbuilt plugins that NvChad uses, and it is initially commented out. I uncommented out because
 I want to ensure that some languages are installed.
 
 [`nvim-jdtls`](https://github.com/mfussenegger/nvim-jdtls)
+
 ```lua
 "mfussenegger/nvim-jdtls"
 ```
+
 This is one of the custom plugins for Java `LSP`. In order to make sure that the `LSP` works when opening a `Java`
 file, `nvim-jdtls` requires a configuration file found in `~/.config/nvim/ftplugin/java.lua`.
+
 ```lua
 local config = {
   cmd = {
@@ -186,6 +205,7 @@ local config = {
 }
 require("jdtls").start_or_attach(config)
 ```
+
 The one customization to `cmd` is the `--jvm-arg=-javaagent:/Users/darren/.local/share/nvim/mason/share/jdtls/lombok.jar`,
 which allows the `LSP` to detect `Lombok`. For example, let's say a `Person` class has a `name` attribute with the `@Getter`
 annotation. In another class, if we were to call `new Person().getName()`, the method `getName` will not be detected without
@@ -199,11 +219,13 @@ The `<leader>` key is " " (Space). To see some of the default mappings that NvCh
 by pressing `<leader>ch`.
 
 Here are some other helpful keyboard shortcuts and commands.
+
 - `K`: When hovering over a variable or a function, the `TypeScript LSP` will display a pop-up window, stating the type
   definition of the variable or function as well as the `JSDoc`.
 - `vim.print({})`: This command prints out the contents of a table in a formatted style.
 
 Here are some of my custom key mappings for my `LSP` configuration.
+
 ```lua
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
