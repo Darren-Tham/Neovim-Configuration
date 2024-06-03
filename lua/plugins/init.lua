@@ -34,7 +34,6 @@ return {
         "typescript-language-server",
         "typst-lsp",
         "typstfmt",
-        "xmlformatter",
         "yaml-language-server"
       },
     },
