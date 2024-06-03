@@ -8,7 +8,8 @@ local options = {
     typescriptreact = { "prettierd" },
     json = { "prettierd" },
     typst = { "typstfmt" },
-    markdown = { "prettierd" }
+    markdown = { "prettierd" },
+    yaml = { "prettierd" }
   },
 
   format_on_save = { -- These options will be passed to conform.format()

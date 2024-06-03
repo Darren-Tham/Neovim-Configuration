@@ -33,7 +33,8 @@ return {
         "tflint",
         "typescript-language-server",
         "typst-lsp",
-        "typstfmt"
+        "typstfmt",
+        "yaml-language-server"
       },
     },
   },
@@ -61,6 +62,7 @@ return {
         "typst",
         "vim",
         "vimdoc",
+        "yaml"
       },
     },
   },
