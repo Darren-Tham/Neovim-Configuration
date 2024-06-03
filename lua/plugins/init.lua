@@ -20,6 +20,8 @@ return {
     opts = {
       ensure_installed = {
         "css-lsp",
+        "docker-compose-language-service",
+        "dockerfile-language-server",
         "eslint-lsp",
         "eslint_d",
         "html-lsp",
@@ -45,6 +47,7 @@ return {
       ensure_installed = {
         "c",
         "css",
+        "dockerfile",
         "html",
         "java",
         "javascript",
