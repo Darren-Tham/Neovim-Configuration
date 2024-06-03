@@ -9,6 +9,7 @@ local options = {
     json = { "prettierd" },
     typst = { "typstfmt" },
     markdown = { "prettierd" },
+    xml = { "xmlformatter" },
     yaml = { "prettierd" }
   },
 

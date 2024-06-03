@@ -34,6 +34,7 @@ return {
         "typescript-language-server",
         "typst-lsp",
         "typstfmt",
+        "xmlformatter",
         "yaml-language-server"
       },
     },
@@ -62,6 +63,7 @@ return {
         "typst",
         "vim",
         "vimdoc",
+        "xml",
         "yaml"
       },
     },
