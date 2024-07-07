@@ -5,7 +5,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "typst_lsp", "terraformls", "marksman", "tflint",
-  "yamlls", "docker_compose_language_service", "dockerls" }
+  "yamlls", "docker_compose_language_service", "dockerls", "ruff_lsp" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
